@@ -264,3 +264,5 @@ export const getAllTags = () => {
     .map(([tag, count]) => ({ tag, count }))
 }
 
+export const getAllSlugs = () => blogPosts.map((post) => post.slug)
+

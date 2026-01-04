@@ -49,7 +49,7 @@ jobs:
             --exclude '.git' \
             --exclude 'node_modules' \
             --exclude '.env' \
-            ./dist/ ${{ env.SERVER_USER }}@${{ env.SERVER_IP }}:${{ env.FRONTEND_PATH }}/
+            ./out/ ${{ env.SERVER_USER }}@${{ env.SERVER_IP }}:${{ env.FRONTEND_PATH }}/
           echo "Frontend deployed successfully!"
 
       - name: Deploy Backend
@@ -94,4 +94,3 @@ jobs:
           echo "Deployed by: ${{ github.actor }}"
           echo "Time: $(date -u)"
           echo "=========================================="
-
