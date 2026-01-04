@@ -4,6 +4,7 @@ import "./globals.css"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { ThemeProvider } from "@/components/ThemeProvider"
+import { CookieConsent } from "@/components/CookieConsent"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -89,6 +90,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

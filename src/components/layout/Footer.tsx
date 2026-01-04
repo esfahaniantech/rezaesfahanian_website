@@ -11,11 +11,16 @@ const quickLinks = [
   { href: "/contact", label: "Contact" },
 ]
 
+const legalLinks = [
+  { href: "/imprint", label: "Imprint" },
+  { href: "/privacy", label: "Privacy Policy" },
+]
+
 export function Footer() {
   return (
     <footer className="bg-foreground dark:bg-card text-background dark:text-foreground py-16">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-4 gap-12">
           {/* Column 1 - About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -52,8 +57,25 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Column 3 - Legal */}
+          <div>
+            <h4 className="font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-background/60 dark:text-muted-foreground hover:text-background dark:hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
           
-          {/* Column 3 - Connect */}
+          {/* Column 4 - Connect */}
           <div>
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex gap-4">
@@ -84,7 +106,7 @@ export function Footer() {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-background/10 dark:border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-background/10 dark:border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-background/40 dark:text-muted-foreground">
             © {new Date().getFullYear()} Reza Esfahanian. All rights reserved.
           </p>
