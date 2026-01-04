@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
               <strong>Last updated:</strong> January 2025
             </p>
             <p className="text-muted-foreground">
-              This privacy policy explains how Reza Esfahanian ("we", "us", or "I") 
+              This privacy policy explains how Welf GmbH ("we", "us", or "our") 
               collects, uses, and protects your personal data when you visit this website. 
               We are committed to ensuring the privacy and security of your personal information 
               in compliance with the General Data Protection Regulation (GDPR) and other 
@@ -38,9 +38,10 @@ export default function PrivacyPolicyPage() {
               </h2>
               <p className="text-muted-foreground">
                 The data controller responsible for your personal data is:<br /><br />
-                Reza Esfahanian<br />
+                <strong>Welf GmbH</strong><br />
                 Hamburg, Germany<br />
-                Email: hello@rezaesfahanian.com
+                Email: hello@rezaesfahanian.com<br /><br />
+                Represented by: Reza Esfahanian (Managing Director)
               </p>
             </div>
 
@@ -258,8 +259,9 @@ export default function PrivacyPolicyPage() {
               <p className="text-muted-foreground">
                 If you have any questions about this privacy policy or our data practices, 
                 please contact us at:<br /><br />
+                <strong>Welf GmbH</strong><br />
                 Email: hello@rezaesfahanian.com<br />
-                LinkedIn: linkedin.com/in/reza-esfahanian
+                Website: rezaesfahanian.com
               </p>
             </div>
           </div>
@@ -268,4 +270,3 @@ export default function PrivacyPolicyPage() {
     </main>
   )
 }
-

@@ -23,8 +23,17 @@ export default function ImprintPage() {
               Information according to § 5 TMG
             </h2>
             <p className="text-muted-foreground">
-              Reza Esfahanian<br />
+              <strong>Welf GmbH</strong><br />
               Hamburg, Germany
+            </p>
+          </div>
+
+          <div className="bg-card border border-border p-8 mb-8">
+            <h2 className="text-xl font-bold text-foreground mb-4">
+              Represented by
+            </h2>
+            <p className="text-muted-foreground">
+              Managing Director (Geschäftsführer): Reza Esfahanian
             </p>
           </div>
 
@@ -32,7 +41,7 @@ export default function ImprintPage() {
             <h2 className="text-xl font-bold text-foreground mb-4">Contact</h2>
             <p className="text-muted-foreground">
               Email: hello@rezaesfahanian.com<br />
-              LinkedIn: linkedin.com/in/reza-esfahanian
+              Website: rezaesfahanian.com
             </p>
           </div>
 
@@ -42,6 +51,7 @@ export default function ImprintPage() {
             </h2>
             <p className="text-muted-foreground">
               Reza Esfahanian<br />
+              c/o Welf GmbH<br />
               Hamburg, Germany
             </p>
           </div>
@@ -56,15 +66,15 @@ export default function ImprintPage() {
             </h3>
             <p className="text-muted-foreground mb-4">
               The contents of this website have been created with the utmost care. However, 
-              I cannot guarantee the accuracy, completeness, or timeliness of the content. 
-              As a service provider, I am responsible for my own content on these pages 
+              Welf GmbH cannot guarantee the accuracy, completeness, or timeliness of the content. 
+              As a service provider, Welf GmbH is responsible for its own content on these pages 
               according to § 7 Abs.1 TMG (German Telemedia Act). According to §§ 8 to 10 TMG, 
-              however, I am not obligated as a service provider to monitor transmitted or 
+              however, Welf GmbH is not obligated as a service provider to monitor transmitted or 
               stored third-party information or to investigate circumstances that indicate 
               illegal activity. Obligations to remove or block the use of information under 
               general law remain unaffected. Liability in this regard is only possible from 
               the point in time at which knowledge of a specific infringement of the law is 
-              obtained. Upon becoming aware of such violations, I will remove this content 
+              obtained. Upon becoming aware of such violations, Welf GmbH will remove this content 
               immediately.
             </p>
 
@@ -73,13 +83,13 @@ export default function ImprintPage() {
             </h3>
             <p className="text-muted-foreground mb-4">
               This website contains links to external third-party websites over whose content 
-              I have no influence. Therefore, I cannot assume any liability for this external 
-              content. The respective provider or operator of the linked pages is always 
-              responsible for the content of the linked pages. The linked pages were checked 
+              Welf GmbH has no influence. Therefore, Welf GmbH cannot assume any liability for 
+              this external content. The respective provider or operator of the linked pages is 
+              always responsible for the content of the linked pages. The linked pages were checked 
               for possible legal violations at the time of linking. Illegal content was not 
               recognizable at the time of linking. However, permanent monitoring of the content 
               of linked pages is not reasonable without concrete evidence of an infringement. 
-              Upon becoming aware of legal violations, I will remove such links immediately.
+              Upon becoming aware of legal violations, Welf GmbH will remove such links immediately.
             </p>
 
             <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
@@ -93,8 +103,8 @@ export default function ImprintPage() {
               permitted for private, non-commercial use. Insofar as the content on this 
               website was not created by the operator, the copyrights of third parties are 
               respected. In particular, third-party content is marked as such. Should you 
-              nevertheless become aware of a copyright infringement, please notify me 
-              accordingly. Upon becoming aware of legal violations, I will remove such 
+              nevertheless become aware of a copyright infringement, please notify Welf GmbH 
+              accordingly. Upon becoming aware of legal violations, Welf GmbH will remove such 
               content immediately.
             </p>
 
@@ -114,9 +124,9 @@ export default function ImprintPage() {
             </h3>
             <p className="text-muted-foreground mb-4">
               This website and its content are provided "as is" without any warranties of any 
-              kind, either express or implied. I disclaim all warranties, including but not 
-              limited to implied warranties of merchantability, fitness for a particular 
-              purpose, and non-infringement. I do not warrant that this website will be 
+              kind, either express or implied. Welf GmbH disclaims all warranties, including but 
+              not limited to implied warranties of merchantability, fitness for a particular 
+              purpose, and non-infringement. Welf GmbH does not warrant that this website will be 
               uninterrupted, error-free, or free of viruses or other harmful components.
             </p>
 
@@ -124,7 +134,7 @@ export default function ImprintPage() {
               Limitation of Liability
             </h3>
             <p className="text-muted-foreground mb-4">
-              To the fullest extent permitted by applicable law, I shall not be liable for 
+              To the fullest extent permitted by applicable law, Welf GmbH shall not be liable for 
               any indirect, incidental, special, consequential, or punitive damages, or any 
               loss of profits or revenues, whether incurred directly or indirectly, or any 
               loss of data, use, goodwill, or other intangible losses, resulting from your 
@@ -147,7 +157,7 @@ export default function ImprintPage() {
                 https://ec.europa.eu/consumers/odr
               </a>
               <br /><br />
-              I am not obligated and not willing to participate in dispute resolution 
+              Welf GmbH is not obligated and not willing to participate in dispute resolution 
               proceedings before a consumer arbitration board.
             </p>
           </div>
@@ -156,4 +166,3 @@ export default function ImprintPage() {
     </main>
   )
 }
-
