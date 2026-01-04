@@ -171,11 +171,13 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
             className="order-2 lg:order-none lg:col-span-8"
           >
             {/* Cover Image */}
-            <div className="relative aspect-video w-full overflow-hidden mb-8">
+            <div className="relative w-full overflow-hidden mb-8 bg-muted" style={{ aspectRatio: "16/9" }}>
               <Image
                 src={post.coverImage}
                 alt={post.coverImageAlt || post.title}
                 fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 66vw"
                 className="object-cover"
               />
             </div>

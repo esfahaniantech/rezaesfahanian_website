@@ -4,9 +4,9 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle } from "lucide-react"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { LogoWrapper } from "@/components/shared/LogoWrapper"
+import { OptimizedImage, imageSizes } from "@/components/shared/OptimizedImage"
 
 interface ExitedVentureCardProps {
   id: string
@@ -46,21 +46,23 @@ export function ExitedVentureCard({
       className="h-full group cursor-pointer"
     >
       <Card className="h-full border-primary/30 hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col overflow-hidden">
-        {/* Banner Image - taller height */}
+        {/* Banner Image - fixed aspect ratio to prevent empty space */}
         {image && (
-          <div className="relative h-40 w-full overflow-hidden">
-            <Image
+          <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "16/9" }}>
+            <OptimizedImage
               src={image}
-              alt={`${name} banner`}
+              alt={`${name} - ${tagline} banner image`}
               fill
+              sizes={imageSizes.card}
+              grayscaleHover
               className={cn(
-                "object-cover transition-all duration-500",
-                "grayscale group-hover:grayscale-0",
+                "object-cover",
                 id === "kipoly" && "object-top"
               )}
+              wrapperClassName="absolute inset-0"
             />
             {/* Gradient overlay with orange accent in light mode */}
-            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-primary/5 dark:to-transparent transition-opacity duration-300 group-hover:opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-primary/5 dark:to-transparent transition-opacity duration-300 group-hover:opacity-80 pointer-events-none" />
           </div>
         )}
         

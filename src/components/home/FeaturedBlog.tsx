@@ -1,7 +1,6 @@
 "use client"
 
 import { ArrowRight } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 
@@ -10,6 +9,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { getFeaturedPost, getRecentPosts, author } from "@/lib/data/blog"
+import { OptimizedImage, imageSizes } from "@/components/shared/OptimizedImage"
 
 export function FeaturedBlog() {
   const featuredPost = getFeaturedPost()
@@ -60,17 +60,21 @@ export function FeaturedBlog() {
             transition={{ delay: 0.1 }}
           >
             <Link href={`/articles/${featuredPost.slug}`} className="group block">
-              <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <Image
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/10" }}>
+                <OptimizedImage
                   src={featuredPost.coverImage}
                   alt={featuredPost.coverImageAlt || featuredPost.title}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  priority
+                  sizes={imageSizes.featured}
+                  grayscaleHover
+                  className="object-cover"
+                  wrapperClassName="absolute inset-0"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
                 {/* Featured badge */}
-                <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground z-10">
                   Featured
                 </Badge>
               </div>
@@ -123,12 +127,15 @@ export function FeaturedBlog() {
                     index !== recentPosts.length - 1 && "border-b border-border"
                   )}
                 >
-                  <div className="relative w-24 h-24 md:w-32 md:h-24 shrink-0 overflow-hidden">
-                    <Image
+                  <div className="relative w-24 h-24 md:w-32 md:h-24 shrink-0 overflow-hidden bg-muted">
+                    <OptimizedImage
                       src={post.coverImage}
-                      alt={post.title}
+                      alt={post.coverImageAlt || post.title}
                       fill
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                      sizes={imageSizes.thumbnail}
+                      grayscaleHover
+                      className="object-cover"
+                      wrapperClassName="absolute inset-0"
                     />
                   </div>
                   <div className="flex-1">

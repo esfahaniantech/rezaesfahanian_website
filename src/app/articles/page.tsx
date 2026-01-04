@@ -153,14 +153,16 @@ export default function ArticlesPage() {
                   href={`/articles/${post.slug}`}
                   className="group block h-full bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all"
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "16/9" }}>
                     <Image
                       src={post.coverImage}
                       alt={post.coverImageAlt || post.title}
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      loading="lazy"
                       className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
                   </div>
                   <div className="p-5">
                     <div className="flex flex-wrap gap-1.5 mb-3">
