@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { CookieConsent } from "@/components/CookieConsent"
+import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -81,6 +82,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased font-sans`}>
+        <GoogleTagManager />
+        <GoogleTagManagerNoScript />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

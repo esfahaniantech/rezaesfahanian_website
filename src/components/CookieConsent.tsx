@@ -187,7 +187,7 @@ export function CookieConsent() {
                           </h4>
                           <p className="text-sm text-muted-foreground">
                             These cookies help us understand how visitors interact with our 
-                            website by collecting anonymous information (Google Analytics).
+                            website by collecting anonymous information (Google Tag Manager, Google Analytics).
                           </p>
                         </div>
                         <div className="flex items-center">
