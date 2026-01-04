@@ -62,17 +62,11 @@ Think of traditional AI as a very smart calculator. It's excellent at what it's 
 
 An emerging framework for agentic AI consists of three key components:
 
-#### 1. The 'Chassis': Technical Frameworks
+**The 'Chassis': Technical Frameworks** — Technical frameworks that enable different AI systems to work together seamlessly. This interoperability is crucial for creating robust, scalable agentic systems that can operate across diverse business functions.
 
-Technical frameworks that enable different AI systems to work together seamlessly. This interoperability is crucial for creating robust, scalable agentic systems that can operate across diverse business functions.
+**The 'Fuel': High-Quality Data Streams** — Real-time, high-quality data streams that keep AI agents informed and responsive. Without continuous, accurate data, even the most sophisticated agents become ineffective. This requires robust data architecture and real-time processing capabilities.
 
-#### 2. The 'Fuel': High-Quality Data Streams
-
-Real-time, high-quality data streams that keep AI agents informed and responsive. Without continuous, accurate data, even the most sophisticated agents become ineffective. This requires robust data architecture and real-time processing capabilities.
-
-#### 3. The 'Powertrain': Human-AI Collaboration
-
-The human-AI collaboration layer that aligns efforts with business goals and Key Performance Indicators (KPIs). This isn't about replacing humans—it's about creating synergistic partnerships where AI handles routine complexity, and humans focus on strategic decision-making.
+**The 'Powertrain': Human-AI Collaboration** — The human-AI collaboration layer that aligns efforts with business goals and Key Performance Indicators (KPIs). This isn't about replacing humans—it's about creating synergistic partnerships where AI handles routine complexity, and humans focus on strategic decision-making.
 
 ## The Reality Check
 
@@ -93,6 +87,14 @@ Businesses that invest in agentic AI infrastructure today aren't just preparing 
 - Most organizations are not yet ready to scale agentic AI effectively
 - Early adopters who build the right infrastructure will define industry leadership
 - The window for competitive advantage is open now—but it won't stay open forever
+
+---
+
+## References
+
+- [The essential guide to scaling agentic AI](https://www.ibm.com/think/insights/scaling-agentic-ai) | IBM
+- [IBM Study: Businesses View AI Agents as Essential, Not Just Experimental](https://newsroom.ibm.com/2024-12-10-IBM-Study-Businesses-View-AI-Agents-as-Essential,-Not-Just-Experimental) | IBM Newsroom
+- [Scale AI agents for business](https://www.ibm.com/think/topics/scale-ai-agents) | IBM
     `,
     coverImage: "/images/articles/agentic-ai-human-robot-collaboration.jpg",
     coverImageAlt: "Human hand and robotic hand reaching towards each other with glowing connection point, symbolizing human-AI collaboration and agentic AI partnership",
@@ -175,6 +177,14 @@ The industry is also addressing the energy consumption of AI systems, developing
 For anyone watching the intersection of technology and sustainability, utilities are becoming one of the most exciting spaces to follow. The sector is proving that AI can deliver both profit and purpose—transforming how we generate, distribute, and consume energy while building a more sustainable future.
 
 The utilities that embrace AI now aren't just improving their operations—they're positioning themselves as leaders in the energy transition that will define the next decade.
+
+---
+
+## References
+
+- [Utilities in the AI era: Powering ahead to a smarter future](https://www.ibm.com/think/insights/utilities-ai-era) | IBM
+- [New IBM Study Data Reveals 74% of Energy & Utility Companies Surveyed Embracing AI](https://newsroom.ibm.com/2024-09-17-new-ibm-study-data-reveals-74-of-energy-utility-companies-surveyed-embracing-ai) | IBM Newsroom
+- [The Future of AI and Energy Efficiency](https://www.ibm.com/think/insights/ai-energy-efficiency) | IBM
     `,
     coverImage: "/images/articles/ai-utilities-smart-city.jpg",
     coverImageAlt: "Modern cityscape with glowing AI brain overlay showing circuit patterns, representing AI-powered smart utilities and sustainable energy transformation",
@@ -305,6 +315,14 @@ AI isn't about incremental improvement—it's about reinvention. The most succes
 These five mindshifts represent a fundamental change in how leaders approach business. They're not optional—they're essential for organizations that want to thrive in an AI-driven future.
 
 The CEOs who embrace these mindshifts now will be the ones setting the pace for their industries. The question isn't whether AI will transform your business—it's whether you'll lead that transformation or follow.
+
+---
+
+## References
+
+- [2025 CEO Study: 5 mindshifts to supercharge business growth](https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/ceo) | IBM
+- [IBM Study: CEOs Double Down on AI While Navigating Enterprise Hurdles](https://newsroom.ibm.com/2025-01-13-ibm-study-ceos-double-down-on-ai-while-navigating-enterprise-hurdles) | IBM Newsroom
+- [IBM's 2025 CEO Study: Key Takeaways](https://www.ibm.com/think/insights/ibm-ceo-study) | IBM
     `,
     coverImage: "/images/articles/ceo-ai-decision-making.jpg",
     coverImageAlt: "Business professional holding tablet displaying glowing blue neural network brain graphic, representing AI-powered leadership decision-making",
@@ -452,6 +470,14 @@ Quantum computing is moving from research to practical applications:
 These trends represent both opportunities and imperatives. Organizations that understand and act on these trends now will be positioned to lead in an AI-driven future. Those that don't risk falling behind competitors who are moving faster.
 
 The window for competitive advantage is open, but it won't stay open forever. The time to act is now.
+
+---
+
+## References
+
+- [5 Trends for 2025](https://www.ibm.com/think/insights/ai-trends) | IBM
+- [The trends that will shape AI and tech in 2026](https://www.ibm.com/think/insights/tech-trends-2026) | IBM
+- [The Top Artificial Intelligence Trends](https://www.ibm.com/think/topics/artificial-intelligence-trends) | IBM
     `,
     coverImage: "/images/articles/ai-trends-2025-technology.jpg",
     coverImageAlt: "Laptop screen showing code editor and terminal with AI neural network graphics, representing AI technology trends and development in 2025",
@@ -583,6 +609,14 @@ The companies that approach agentic AI orchestration with this kind of disciplin
 The future belongs to organizations that can orchestrate AI effectively. This isn't about having the most advanced AI—it's about having AI systems that work together seamlessly, augment human capabilities, and drive continuous improvement.
 
 The question isn't whether to invest in orchestration—it's how quickly you can build these capabilities while your competitors are doing the same.
+
+---
+
+## References
+
+- [The essential guide to scaling agentic AI](https://www.ibm.com/think/insights/scaling-agentic-ai) | IBM
+- [Agentic AI: 4 reasons why it's the next big thing in AI research](https://www.ibm.com/think/insights/agentic-ai) | IBM
+- [What is Agentic AI?](https://www.ibm.com/think/topics/agentic-ai) | IBM
     `,
     coverImage: "/images/articles/orchestrating-agentic-ai-operations.jpg",
     coverImageAlt: "Two human hands with index fingers nearly touching, creating glowing circular interface with data flow connections, symbolizing agentic AI orchestration and seamless operations",
@@ -732,6 +766,14 @@ Security must be foundational:
 By 2035, vehicles will be platforms for innovation, personalization, and new services. The companies that understand this transformation now and build the capabilities to thrive in a software-defined, AI-powered world will lead the industry.
 
 The question isn't whether this transformation will happen—it's whether your organization will lead it or follow.
+
+---
+
+## References
+
+- [Automotive 2035](https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/automotive-2035) | IBM
+- [IBM Study: Vehicles Believed to be Software Defined and AI Powered by 2035](https://newsroom.ibm.com/2024-01-09-IBM-Study-Vehicles-Believed-to-be-Software-Defined-and-AI-Powered-by-2035) | IBM Newsroom
+- [IBM 'Automotive 2035' Study: Transformative Insights on AI and SDV](https://www.cargroup.org/ibm-automotive-2035-study/) | Center for Automotive Research
     `,
     coverImage: "/images/articles/automotive-ai-future.jpg",
     coverImageAlt: "Businessman's hand touching glowing AI button with digital globe network, representing software-defined AI-powered vehicles and automotive transformation",
@@ -887,6 +929,14 @@ The opportunity is genuine: AI can make government more responsive, efficient, a
 ## Leading with Responsibility
 
 Governments that lead with responsibility—prioritizing ethics, transparency, and citizen trust—will be the ones that successfully harness AI's potential while maintaining public confidence. The future of public service depends on getting this balance right.
+
+---
+
+## References
+
+- [Government in the AI era](https://www.ibm.com/think/insights/government-ai-era) | IBM
+- [Generative AI for Government](https://www.ibm.com/think/insights/generative-ai-government) | IBM
+- [Risk Management in the AI Era](https://www.businessofgovernment.org/report/risk-management-ai-era) | IBM Center for The Business of Government
     `,
     coverImage: "/images/articles/ai-government-trust-innovation.jpg",
     coverImageAlt: "Humanoid robot and businesswoman separated by glass partition with binary code patterns, representing AI in government building trust through innovation",
@@ -1096,6 +1146,14 @@ Once pilots succeed:
 The journey from concept to enterprise deployment requires discipline, patience, and a commitment to getting the fundamentals right. Organizations that follow this roadmap—building the chassis, fueling with quality data, and powering through human-AI collaboration—will be the ones that realize agentic AI's full potential.
 
 The question isn't whether you can deploy agentic AI—it's whether you'll follow a roadmap that leads to sustainable success.
+
+---
+
+## References
+
+- [The essential guide to scaling agentic AI](https://www.ibm.com/think/insights/scaling-agentic-ai) | IBM
+- [Agentic AI: 4 reasons why it's the next big thing in AI research](https://www.ibm.com/think/insights/agentic-ai) | IBM
+- [What is Agentic AI?](https://www.ibm.com/think/topics/agentic-ai) | IBM
     `,
     coverImage: "/images/articles/agentic-ai-deployment-roadmap.jpg",
     coverImageAlt: "Silver laptop with glowing blue wireframe human head overlay and binary code, representing agentic AI deployment from concept to enterprise implementation",
@@ -1278,6 +1336,14 @@ Security is ongoing:
 The future of cybersecurity will be defined by organizations that successfully navigate the AI security paradox—leveraging AI's power while managing its risks. Those that adopt secure by design principles, maintain transparency, and invest in continuous improvement will be the ones that stay ahead of threats.
 
 The question isn't whether AI will transform cybersecurity—it's whether you'll use it as an ally or fall victim to its risks.
+
+---
+
+## References
+
+- [Secure by design with AI for cyber resilience](https://www.ibm.com/think/insights/secure-by-design-ai) | IBM
+- [How to embrace Secure by Design principles while adopting AI](https://www.ibm.com/think/insights/secure-by-design-principles-ai) | IBM
+- [Securing Generative AI Platforms](https://www.ibm.com/think/insights/securing-generative-ai) | IBM
     `,
     coverImage: "/images/articles/secure-by-design-ai-cybersecurity.jpg",
     coverImageAlt: "Glowing blue AI brain with circuit patterns and cybersecurity elements including fingerprint icon and CYBER text, representing secure by design AI principles",
@@ -1469,6 +1535,14 @@ The imperative is clear:
 The future belongs to supply chains that can adapt, learn, and respond autonomously. Organizations that invest in agentic AI capabilities now are building the resilience and competitive advantages that will define success in an uncertain world.
 
 The question isn't whether supply chains will become autonomous—it's whether yours will lead or follow.
+
+---
+
+## References
+
+- [Scaling supply chain resilience: Agentic AI for autonomous operations](https://www.ibm.com/think/insights/supply-chain-agentic-ai) | IBM
+- [Agentic AI helps COOs and CSCOs](https://www.ibm.com/think/insights/agentic-ai-coo-csco) | IBM
+- [Building supply chain resiliency with AI-driven workflows](https://www.ibm.com/think/insights/supply-chain-resiliency-ai) | IBM
     `,
     coverImage: "/images/articles/autonomous-supply-chain-ai.jpg",
     coverImageAlt: "Professional handshake between businesswoman and humanoid robot across office desk, symbolizing autonomous supply chain AI collaboration and resilience",
