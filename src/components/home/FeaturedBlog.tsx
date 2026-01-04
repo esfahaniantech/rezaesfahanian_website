@@ -69,6 +69,7 @@ export function FeaturedBlog() {
                   priority
                   sizes={imageSizes.featured}
                   grayscaleHover
+                  className="object-top"
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />

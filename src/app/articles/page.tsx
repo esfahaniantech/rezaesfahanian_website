@@ -58,6 +58,7 @@ export default function ArticlesPage() {
                     priority
                     sizes={imageSizes.featured}
                     grayscaleHover
+                    className="object-top"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-card/80 md:block hidden pointer-events-none" />
                   <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground z-10">
