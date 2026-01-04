@@ -53,13 +53,10 @@ export function ExitedVentureCard({
               src={image}
               alt={`${name} - ${tagline} banner image`}
               fill
+              fillParent
               sizes={imageSizes.card}
               grayscaleHover
-              className={cn(
-                "object-cover",
-                id === "kipoly" && "object-top"
-              )}
-              wrapperClassName="absolute inset-0"
+              className={id === "kipoly" ? "object-top" : undefined}
             />
             {/* Gradient overlay with orange accent in light mode */}
             <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-primary/5 dark:to-transparent transition-opacity duration-300 group-hover:opacity-80 pointer-events-none" />

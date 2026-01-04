@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Search } from "lucide-react"
@@ -12,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import { blogPosts, getAllTags, author, getFeaturedPost } from "@/lib/data/blog"
+import { OptimizedImage, imageSizes } from "@/components/shared/OptimizedImage"
 
 export default function ArticlesPage() {
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -49,15 +49,18 @@ export default function ArticlesPage() {
               className="group block relative overflow-hidden bg-card border border-border hover:border-primary/50 transition-all"
             >
               <div className="grid md:grid-cols-2 gap-0">
-                <div className="relative h-64 md:h-80 overflow-hidden">
-                  <Image
+                <div className="relative h-64 md:h-80 overflow-hidden bg-muted">
+                  <OptimizedImage
                     src={featuredPost.coverImage}
-                    alt={featuredPost.title}
+                    alt={featuredPost.coverImageAlt || featuredPost.title}
                     fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    fillParent
+                    priority
+                    sizes={imageSizes.featured}
+                    grayscaleHover
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-card/80 md:block hidden" />
-                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-card/80 md:block hidden pointer-events-none" />
+                  <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground z-10">
                     Featured
                   </Badge>
                 </div>
@@ -154,13 +157,13 @@ export default function ArticlesPage() {
                   className="group block h-full bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all"
                 >
                   <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "16/9" }}>
-                    <Image
+                    <OptimizedImage
                       src={post.coverImage}
                       alt={post.coverImageAlt || post.title}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      loading="lazy"
-                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      fillParent
+                      sizes={imageSizes.card}
+                      grayscaleHover
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
                   </div>

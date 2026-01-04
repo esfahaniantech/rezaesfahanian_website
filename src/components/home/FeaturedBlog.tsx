@@ -65,11 +65,10 @@ export function FeaturedBlog() {
                   src={featuredPost.coverImage}
                   alt={featuredPost.coverImageAlt || featuredPost.title}
                   fill
+                  fillParent
                   priority
                   sizes={imageSizes.featured}
                   grayscaleHover
-                  className="object-cover"
-                  wrapperClassName="absolute inset-0"
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
@@ -132,10 +131,9 @@ export function FeaturedBlog() {
                       src={post.coverImage}
                       alt={post.coverImageAlt || post.title}
                       fill
+                      fillParent
                       sizes={imageSizes.thumbnail}
                       grayscaleHover
-                      className="object-cover"
-                      wrapperClassName="absolute inset-0"
                     />
                   </div>
                   <div className="flex-1">

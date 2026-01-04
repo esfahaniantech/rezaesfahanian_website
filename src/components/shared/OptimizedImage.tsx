@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 interface OptimizedImageProps extends Omit<ImageProps, "onLoad" | "onError"> {
   /**
    * Aspect ratio for the container (e.g., "16/9", "4/3", "1/1")
-   * Only used when fill={true}
+   * Only used when fill={true} and not using absolute positioning
    */
   aspectRatio?: string
   /**
@@ -26,6 +26,11 @@ interface OptimizedImageProps extends Omit<ImageProps, "onLoad" | "onError"> {
    * Enable grayscale effect that removes on hover
    */
   grayscaleHover?: boolean
+  /**
+   * When true, the wrapper will be absolutely positioned to fill its parent
+   * Use this when the parent already has aspect ratio defined
+   */
+  fillParent?: boolean
 }
 
 /**
@@ -38,6 +43,11 @@ interface OptimizedImageProps extends Omit<ImageProps, "onLoad" | "onError"> {
  * - Aspect ratio container for fill mode
  * - Grayscale hover effect option
  * - Proper alt text handling for accessibility/SEO
+ * 
+ * Usage patterns:
+ * 1. With aspectRatio prop - creates its own container with aspect ratio
+ * 2. With fillParent=true - fills parent container (parent should have dimensions)
+ * 3. Default - relative container that inherits parent dimensions
  */
 export function OptimizedImage({
   src,
@@ -51,6 +61,7 @@ export function OptimizedImage({
   wrapperClassName,
   className,
   grayscaleHover = false,
+  fillParent = false,
   ...props
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -63,15 +74,19 @@ export function OptimizedImage({
   const aspectStyle = aspectRatio ? { aspectRatio } : undefined
 
   if (fill) {
+    // Determine wrapper classes based on positioning mode
+    const wrapperClasses = cn(
+      "overflow-hidden",
+      fillParent ? "absolute inset-0" : "relative w-full",
+      !fillParent && aspectRatio && "h-auto",
+      !fillParent && !aspectRatio && "h-full",
+      wrapperClassName
+    )
+
     return (
       <div
-        className={cn(
-          "relative w-full overflow-hidden",
-          aspectRatio && "h-auto",
-          !aspectRatio && "h-full",
-          wrapperClassName
-        )}
-        style={aspectStyle}
+        className={wrapperClasses}
+        style={!fillParent ? aspectStyle : undefined}
       >
         {/* Placeholder background */}
         {showPlaceholder && !isLoaded && !hasError && (

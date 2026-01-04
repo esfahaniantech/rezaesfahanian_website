@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Home, Linkedin, Calendar, Clock, ArrowLeft, Share2 } from "lucide-react"
@@ -23,6 +22,7 @@ import { author } from "@/lib/data/blog"
 import { XIcon } from "@/components/icons/XIcon"
 import { ArticleJsonLd } from "@/components/JsonLd"
 import { BlogPost } from "@/types"
+import { OptimizedImage, imageSizes } from "@/components/shared/OptimizedImage"
 
 interface BlogPostContentProps {
   post: BlogPost
@@ -172,13 +172,13 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
           >
             {/* Cover Image */}
             <div className="relative w-full overflow-hidden mb-8 bg-muted" style={{ aspectRatio: "16/9" }}>
-              <Image
+              <OptimizedImage
                 src={post.coverImage}
                 alt={post.coverImageAlt || post.title}
                 fill
+                fillParent
                 priority
-                sizes="(max-width: 1024px) 100vw, 66vw"
-                className="object-cover"
+                sizes={imageSizes.articleCover}
               />
             </div>
 
