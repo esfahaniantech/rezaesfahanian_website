@@ -10,8 +10,6 @@ env:
   SERVER_IP: 91.98.203.113
   SERVER_USER: root
   FRONTEND_PATH: /var/www/sites/rezaesfahanian-website/frontend/build
-  BACKEND_PATH: /var/www/sites/rezaesfahanian-website/backend
-  PM2_PROCESS_NAME: rezaesfahanian-backend
 
 jobs:
   build-and-deploy:
@@ -51,37 +49,6 @@ jobs:
             --exclude '.env' \
             ./out/ ${{ env.SERVER_USER }}@${{ env.SERVER_IP }}:${{ env.FRONTEND_PATH }}/
           echo "Frontend deployed successfully!"
-
-      - name: Deploy Backend
-        run: |
-          echo "Deploying backend to ${{ env.BACKEND_PATH }}..."
-          rsync -avz --delete \
-            --exclude 'node_modules' \
-            --exclude '.env' \
-            --exclude '.git' \
-            ./backend/ ${{ env.SERVER_USER }}@${{ env.SERVER_IP }}:${{ env.BACKEND_PATH }}/
-          echo "Backend files deployed!"
-
-      - name: Install backend dependencies and restart
-        run: |
-          ssh ${{ env.SERVER_USER }}@${{ env.SERVER_IP }} << 'EOF'
-            cd ${{ env.BACKEND_PATH }}
-            echo "Installing backend dependencies..."
-            npm install --production
-            echo "Restarting PM2 process..."
-            pm2 restart ${{ env.PM2_PROCESS_NAME }} || pm2 start server.js --name ${{ env.PM2_PROCESS_NAME }}
-            pm2 save
-            echo "Backend restarted successfully!"
-          EOF
-
-      - name: Verify deployment
-        run: |
-          echo "Waiting for server to be ready..."
-          sleep 5
-          echo "Checking health endpoint..."
-          ssh ${{ env.SERVER_USER }}@${{ env.SERVER_IP }} "curl -s http://localhost:3003/health"
-          echo ""
-          echo "Deployment completed successfully!"
 
       - name: Deployment summary
         run: |
