@@ -92,9 +92,9 @@ Businesses that invest in agentic AI infrastructure today aren't just preparing 
 
 ## References
 
-- [The essential guide to scaling agentic AI](https://www.ibm.com/think/insights/scaling-agentic-ai) | IBM
-- [IBM Study: Businesses View AI Agents as Essential, Not Just Experimental](https://newsroom.ibm.com/2024-12-10-IBM-Study-Businesses-View-AI-Agents-as-Essential,-Not-Just-Experimental) | IBM Newsroom
-- [Scale AI agents for business](https://www.ibm.com/think/topics/scale-ai-agents) | IBM
+- [The essential guide to scaling agentic AI — IBM](https://www.ibm.com/think/insights/scaling-agentic-ai)
+- [IBM Study: Businesses View AI Agents as Essential, Not Just Experimental — IBM Newsroom](https://newsroom.ibm.com/2024-12-10-IBM-Study-Businesses-View-AI-Agents-as-Essential,-Not-Just-Experimental)
+- [Scale AI agents for business — IBM](https://www.ibm.com/think/topics/scale-ai-agents)
     `,
     coverImage: "/images/articles/agentic-ai-human-robot-collaboration.jpg",
     coverImageAlt: "Human hand and robotic hand reaching towards each other with glowing connection point, symbolizing human-AI collaboration and agentic AI partnership",
@@ -182,9 +182,9 @@ The utilities that embrace AI now aren't just improving their operations—they'
 
 ## References
 
-- [Utilities in the AI era: Powering ahead to a smarter future](https://www.ibm.com/think/insights/utilities-ai-era) | IBM
-- [New IBM Study Data Reveals 74% of Energy & Utility Companies Surveyed Embracing AI](https://newsroom.ibm.com/2024-09-17-new-ibm-study-data-reveals-74-of-energy-utility-companies-surveyed-embracing-ai) | IBM Newsroom
-- [The Future of AI and Energy Efficiency](https://www.ibm.com/think/insights/ai-energy-efficiency) | IBM
+- [Utilities in the AI era: Powering ahead to a smarter future — IBM](https://www.ibm.com/think/insights/utilities-ai-era)
+- [New IBM Study Data Reveals 74% of Energy & Utility Companies Surveyed Embracing AI — IBM Newsroom](https://newsroom.ibm.com/2024-09-17-new-ibm-study-data-reveals-74-of-energy-utility-companies-surveyed-embracing-ai)
+- [The Future of AI and Energy Efficiency — IBM](https://www.ibm.com/think/insights/ai-energy-efficiency)
     `,
     coverImage: "/images/articles/ai-utilities-smart-city.jpg",
     coverImageAlt: "Modern cityscape with glowing AI brain overlay showing circuit patterns, representing AI-powered smart utilities and sustainable energy transformation",
@@ -320,9 +320,9 @@ The CEOs who embrace these mindshifts now will be the ones setting the pace for 
 
 ## References
 
-- [2025 CEO Study: 5 mindshifts to supercharge business growth](https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/ceo) | IBM
-- [IBM Study: CEOs Double Down on AI While Navigating Enterprise Hurdles](https://newsroom.ibm.com/2025-01-13-ibm-study-ceos-double-down-on-ai-while-navigating-enterprise-hurdles) | IBM Newsroom
-- [IBM's 2025 CEO Study: Key Takeaways](https://www.ibm.com/think/insights/ibm-ceo-study) | IBM
+- [2025 CEO Study: 5 mindshifts to supercharge business growth — IBM](https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/ceo)
+- [IBM Study: CEOs Double Down on AI While Navigating Enterprise Hurdles — IBM Newsroom](https://newsroom.ibm.com/2025-01-13-ibm-study-ceos-double-down-on-ai-while-navigating-enterprise-hurdles)
+- [IBM's 2025 CEO Study: Key Takeaways — IBM](https://www.ibm.com/think/insights/ibm-ceo-study)
     `,
     coverImage: "/images/articles/ceo-ai-decision-making.jpg",
     coverImageAlt: "Business professional holding tablet displaying glowing blue neural network brain graphic, representing AI-powered leadership decision-making",
@@ -475,9 +475,9 @@ The window for competitive advantage is open, but it won't stay open forever. Th
 
 ## References
 
-- [5 Trends for 2025](https://www.ibm.com/think/insights/ai-trends) | IBM
-- [The trends that will shape AI and tech in 2026](https://www.ibm.com/think/insights/tech-trends-2026) | IBM
-- [The Top Artificial Intelligence Trends](https://www.ibm.com/think/topics/artificial-intelligence-trends) | IBM
+- [5 Trends for 2025 — IBM](https://www.ibm.com/think/insights/ai-trends)
+- [The trends that will shape AI and tech in 2026 — IBM](https://www.ibm.com/think/insights/tech-trends-2026)
+- [The Top Artificial Intelligence Trends — IBM](https://www.ibm.com/think/topics/artificial-intelligence-trends)
     `,
     coverImage: "/images/articles/ai-trends-2025-technology.jpg",
     coverImageAlt: "Laptop screen showing code editor and terminal with AI neural network graphics, representing AI technology trends and development in 2025",
@@ -614,9 +614,9 @@ The question isn't whether to invest in orchestration—it's how quickly you can
 
 ## References
 
-- [The essential guide to scaling agentic AI](https://www.ibm.com/think/insights/scaling-agentic-ai) | IBM
-- [Agentic AI: 4 reasons why it's the next big thing in AI research](https://www.ibm.com/think/insights/agentic-ai) | IBM
-- [What is Agentic AI?](https://www.ibm.com/think/topics/agentic-ai) | IBM
+- [The essential guide to scaling agentic AI — IBM](https://www.ibm.com/think/insights/scaling-agentic-ai)
+- [Agentic AI: 4 reasons why it's the next big thing in AI research — IBM](https://www.ibm.com/think/insights/agentic-ai)
+- [What is Agentic AI? — IBM](https://www.ibm.com/think/topics/agentic-ai)
     `,
     coverImage: "/images/articles/orchestrating-agentic-ai-operations.jpg",
     coverImageAlt: "Two human hands with index fingers nearly touching, creating glowing circular interface with data flow connections, symbolizing agentic AI orchestration and seamless operations",
@@ -771,9 +771,9 @@ The question isn't whether this transformation will happen—it's whether your o
 
 ## References
 
-- [Automotive 2035](https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/automotive-2035) | IBM
-- [IBM Study: Vehicles Believed to be Software Defined and AI Powered by 2035](https://newsroom.ibm.com/2024-01-09-IBM-Study-Vehicles-Believed-to-be-Software-Defined-and-AI-Powered-by-2035) | IBM Newsroom
-- [IBM 'Automotive 2035' Study: Transformative Insights on AI and SDV](https://www.cargroup.org/ibm-automotive-2035-study/) | Center for Automotive Research
+- [Automotive 2035 — IBM](https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/automotive-2035)
+- [IBM Study: Vehicles Believed to be Software Defined and AI Powered by 2035 — IBM Newsroom](https://newsroom.ibm.com/2024-01-09-IBM-Study-Vehicles-Believed-to-be-Software-Defined-and-AI-Powered-by-2035)
+- [IBM 'Automotive 2035' Study: Transformative Insights on AI and SDV — Center for Automotive Research](https://www.cargroup.org/ibm-automotive-2035-study/)
     `,
     coverImage: "/images/articles/automotive-ai-future.jpg",
     coverImageAlt: "Businessman's hand touching glowing AI button with digital globe network, representing software-defined AI-powered vehicles and automotive transformation",
@@ -934,9 +934,9 @@ Governments that lead with responsibility—prioritizing ethics, transparency, a
 
 ## References
 
-- [Government in the AI era](https://www.ibm.com/think/insights/government-ai-era) | IBM
-- [Generative AI for Government](https://www.ibm.com/think/insights/generative-ai-government) | IBM
-- [Risk Management in the AI Era](https://www.businessofgovernment.org/report/risk-management-ai-era) | IBM Center for The Business of Government
+- [Government in the AI era — IBM](https://www.ibm.com/think/insights/government-ai-era)
+- [Generative AI for Government — IBM](https://www.ibm.com/think/insights/generative-ai-government)
+- [Risk Management in the AI Era — IBM Center for The Business of Government](https://www.businessofgovernment.org/report/risk-management-ai-era)
     `,
     coverImage: "/images/articles/ai-government-trust-innovation.jpg",
     coverImageAlt: "Humanoid robot and businesswoman separated by glass partition with binary code patterns, representing AI in government building trust through innovation",
@@ -1151,9 +1151,9 @@ The question isn't whether you can deploy agentic AI—it's whether you'll follo
 
 ## References
 
-- [The essential guide to scaling agentic AI](https://www.ibm.com/think/insights/scaling-agentic-ai) | IBM
-- [Agentic AI: 4 reasons why it's the next big thing in AI research](https://www.ibm.com/think/insights/agentic-ai) | IBM
-- [What is Agentic AI?](https://www.ibm.com/think/topics/agentic-ai) | IBM
+- [The essential guide to scaling agentic AI — IBM](https://www.ibm.com/think/insights/scaling-agentic-ai)
+- [Agentic AI: 4 reasons why it's the next big thing in AI research — IBM](https://www.ibm.com/think/insights/agentic-ai)
+- [What is Agentic AI? — IBM](https://www.ibm.com/think/topics/agentic-ai)
     `,
     coverImage: "/images/articles/agentic-ai-deployment-roadmap.jpg",
     coverImageAlt: "Silver laptop with glowing blue wireframe human head overlay and binary code, representing agentic AI deployment from concept to enterprise implementation",
@@ -1341,9 +1341,9 @@ The question isn't whether AI will transform cybersecurity—it's whether you'll
 
 ## References
 
-- [Secure by design with AI for cyber resilience](https://www.ibm.com/think/insights/secure-by-design-ai) | IBM
-- [How to embrace Secure by Design principles while adopting AI](https://www.ibm.com/think/insights/secure-by-design-principles-ai) | IBM
-- [Securing Generative AI Platforms](https://www.ibm.com/think/insights/securing-generative-ai) | IBM
+- [Secure by design with AI for cyber resilience — IBM](https://www.ibm.com/think/insights/secure-by-design-ai)
+- [How to embrace Secure by Design principles while adopting AI — IBM](https://www.ibm.com/think/insights/secure-by-design-principles-ai)
+- [Securing Generative AI Platforms — IBM](https://www.ibm.com/think/insights/securing-generative-ai)
     `,
     coverImage: "/images/articles/secure-by-design-ai-cybersecurity.jpg",
     coverImageAlt: "Glowing blue AI brain with circuit patterns and cybersecurity elements including fingerprint icon and CYBER text, representing secure by design AI principles",
@@ -1540,9 +1540,9 @@ The question isn't whether supply chains will become autonomous—it's whether y
 
 ## References
 
-- [Scaling supply chain resilience: Agentic AI for autonomous operations](https://www.ibm.com/think/insights/supply-chain-agentic-ai) | IBM
-- [Agentic AI helps COOs and CSCOs](https://www.ibm.com/think/insights/agentic-ai-coo-csco) | IBM
-- [Building supply chain resiliency with AI-driven workflows](https://www.ibm.com/think/insights/supply-chain-resiliency-ai) | IBM
+- [Scaling supply chain resilience: Agentic AI for autonomous operations — IBM](https://www.ibm.com/think/insights/supply-chain-agentic-ai)
+- [Agentic AI helps COOs and CSCOs — IBM](https://www.ibm.com/think/insights/agentic-ai-coo-csco)
+- [Building supply chain resiliency with AI-driven workflows — IBM](https://www.ibm.com/think/insights/supply-chain-resiliency-ai)
     `,
     coverImage: "/images/articles/autonomous-supply-chain-ai.jpg",
     coverImageAlt: "Professional handshake between businesswoman and humanoid robot across office desk, symbolizing autonomous supply chain AI collaboration and resilience",

@@ -24,6 +24,51 @@ import { ArticleJsonLd } from "@/components/JsonLd"
 import { BlogPost } from "@/types"
 import { OptimizedImage, imageSizes } from "@/components/shared/OptimizedImage"
 
+// Helper function to parse inline markdown elements (bold, links)
+function parseInlineMarkdown(text: string): React.ReactNode {
+  // Pattern to match markdown links [text](url) and bold **text**
+  const parts: React.ReactNode[] = []
+  let lastIndex = 0
+  
+  // Combined regex for links and bold text
+  const regex = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g
+  let match
+  
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index))
+    }
+    
+    if (match[1] && match[2]) {
+      // It's a link [text](url)
+      parts.push(
+        <a 
+          key={match.index} 
+          href={match[2]} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-primary hover:underline"
+        >
+          {match[1]}
+        </a>
+      )
+    } else if (match[3]) {
+      // It's bold **text**
+      parts.push(<strong key={match.index}>{match[3]}</strong>)
+    }
+    
+    lastIndex = match.index + match[0].length
+  }
+  
+  // Add remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex))
+  }
+  
+  return parts.length > 0 ? parts : text
+}
+
 interface BlogPostContentProps {
   post: BlogPost
   relatedPosts: BlogPost[]
@@ -197,6 +242,11 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
                 .map((paragraph, idx) => {
                   const trimmedParagraph = paragraph.trim()
 
+                  // Skip horizontal rules
+                  if (trimmedParagraph === "---") {
+                    return <hr key={idx} className="my-8 border-border" />
+                  }
+
                   // Handle headers
                   if (trimmedParagraph.startsWith("## ")) {
                     const title = trimmedParagraph.replace("## ", "")
@@ -238,17 +288,14 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
                     )
                   }
 
-                  // Handle lists
+                  // Handle lists (including reference links)
                   if (trimmedParagraph.startsWith("- ")) {
                     const items = trimmedParagraph.split("\n").filter((l) => l.trim())
                     return (
                       <ul key={idx} className="list-disc pl-6 my-4 space-y-2">
                         {items.map((item, i) => {
-                          // Parse bold text **text** properly
-                          const cleanItem = item
-                            .replace(/^-\s*/, "")
-                            .replace(/\*\*(.*?)\*\*/g, "$1")
-                          return <li key={i}>{cleanItem}</li>
+                          const cleanItem = item.replace(/^-\s*/, "")
+                          return <li key={i}>{parseInlineMarkdown(cleanItem)}</li>
                         })}
                       </ul>
                     )
@@ -302,10 +349,10 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
                     }
                   }
 
-                  // Regular paragraphs
+                  // Regular paragraphs - parse inline markdown
                   return (
                     <p key={idx} className="my-4 leading-relaxed">
-                      {trimmedParagraph}
+                      {parseInlineMarkdown(trimmedParagraph)}
                     </p>
                   )
                 })}
