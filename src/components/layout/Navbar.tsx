@@ -5,11 +5,12 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Linkedin } from "lucide-react"
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetClose } from "@/components/ui/sheet"
+import { Menu, Linkedin, ArrowRight, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import { XIcon } from "@/components/icons/XIcon"
+import { Separator } from "@/components/ui/separator"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -23,12 +24,18 @@ const navLinks = [
 export function Navbar() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [pathname])
 
   return (
     <header
@@ -89,36 +96,99 @@ export function Navbar() {
         {/* Mobile Menu */}
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle />
-          <Sheet>
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="relative">
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
-              <div className="flex flex-col gap-4 mt-8">
-                {navLinks.map((link) => (
+            <SheetContent 
+              side="right" 
+              className="w-full sm:w-[350px] p-0 bg-background border-l border-border/50"
+            >
+              {/* Header with Logo */}
+              <div className="flex items-center justify-between p-6 border-b border-border/50">
+                <Link 
+                  href="/" 
+                  className="flex items-center gap-3"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Image
+                    src="/logo.png"
+                    alt="RE Logo"
+                    width={36}
+                    height={36}
+                    className="w-9 h-9"
+                  />
+                  <span className="text-lg font-semibold text-foreground">
+                    Reza Esfahanian
+                  </span>
+                </Link>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex flex-col p-6">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                {navLinks.map((link, index) => (
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "text-lg font-medium py-2",
-                      pathname === link.href ? "text-primary" : "text-muted-foreground"
+                      "group flex items-center justify-between py-4 text-lg font-medium transition-all duration-200",
+                      "border-b border-border/30 last:border-b-0",
+                      pathname === link.href 
+                        ? "text-primary" 
+                        : "text-foreground hover:text-primary"
                     )}
                   >
-                    {link.label}
+                    <span className="flex items-center gap-3">
+                      {pathname === link.href && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      )}
+                      {link.label}
+                    </span>
+                    <ArrowRight className={cn(
+                      "w-4 h-4 opacity-0 -translate-x-2 transition-all duration-200",
+                      "group-hover:opacity-100 group-hover:translate-x-0 text-muted-foreground"
+                    )} />
                   </Link>
                 ))}
-                <div className="flex gap-4 mt-4">
-                  <a href="https://linkedin.com/in/reza-esfahanian" target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="w-6 h-6 text-muted-foreground" />
+              </nav>
+
+              {/* Footer Section */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-muted/30 border-t border-border/50">
+                {/* Social Links */}
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="text-sm text-muted-foreground">Connect:</span>
+                  <a 
+                    href="https://linkedin.com/in/reza-esfahanian" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full bg-muted hover:bg-primary/10 transition-colors"
+                  >
+                    <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
                   </a>
-                  <a href="https://x.com/rezaesfahanian" target="_blank" rel="noopener noreferrer">
-                    <XIcon className="w-6 h-6 text-muted-foreground" />
+                  <a 
+                    href="https://x.com/rezaesfahanian" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full bg-muted hover:bg-primary/10 transition-colors"
+                  >
+                    <XIcon className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
                   </a>
                 </div>
-                <Button asChild className="mt-4 bg-primary text-primary-foreground">
-                  <Link href="/contact">Get in Touch</Link>
+
+                {/* CTA Button */}
+                <Button 
+                  asChild 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium h-12"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Link href="/contact" className="flex items-center justify-center gap-2">
+                    Get in Touch
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </Button>
               </div>
             </SheetContent>
