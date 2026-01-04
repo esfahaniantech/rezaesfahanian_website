@@ -24,34 +24,67 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
+  const siteUrl = "https://rezaesfahanian.com"
+  const articleUrl = `${siteUrl}/articles/${post.slug}`
+  const fullImageUrl = post.coverImage.startsWith("http")
+    ? post.coverImage
+    : `${siteUrl}${post.coverImage}`
+
   return {
-    title: post.title,
+    title: `${post.title} | Reza Esfahanian`,
     description: post.excerpt,
-    keywords: post.tags,
-    authors: [{ name: author.name }],
+    keywords: post.tags.join(", "),
+    authors: [{ name: author.name, url: `${siteUrl}/about` }],
+    creator: author.name,
+    publisher: author.name,
+    category: "Technology",
+    alternates: {
+      canonical: articleUrl,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
-      url: `https://rezaesfahanian.com/articles/${post.slug}`,
+      url: articleUrl,
+      siteName: "Reza Esfahanian",
       publishedTime: post.date,
+      modifiedTime: post.date,
       authors: [author.name],
       tags: post.tags,
       images: [
         {
-          url: post.coverImage,
+          url: fullImageUrl,
           width: 1200,
           height: 630,
-          alt: post.title,
+          alt: post.coverImageAlt || post.title,
         },
       ],
+      locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-      images: [post.coverImage],
+      images: [fullImageUrl],
       creator: "@rezaesfahanian",
+      site: "@rezaesfahanian",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    other: {
+      "article:author": author.name,
+      "article:published_time": post.date,
+      "article:section": post.tags[0] || "Technology",
+      "article:tag": post.tags.join(", "),
     },
   }
 }

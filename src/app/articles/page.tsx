@@ -156,7 +156,7 @@ export default function ArticlesPage() {
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={post.coverImage}
-                      alt={post.title}
+                      alt={post.coverImageAlt || post.title}
                       fill
                       className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                     />

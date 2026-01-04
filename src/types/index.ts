@@ -47,6 +47,7 @@ export interface BlogPost {
   excerpt: string
   content: string // MDX or HTML content
   coverImage: string
+  coverImageAlt?: string
   date: string
   readTime: string
   tags: string[]

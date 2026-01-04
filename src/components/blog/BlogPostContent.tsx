@@ -174,7 +174,7 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
             <div className="relative aspect-video w-full overflow-hidden mb-8">
               <Image
                 src={post.coverImage}
-                alt={post.title}
+                alt={post.coverImageAlt || post.title}
                 fill
                 className="object-cover"
               />

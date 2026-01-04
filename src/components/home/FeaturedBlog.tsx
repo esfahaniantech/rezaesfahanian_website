@@ -63,7 +63,7 @@ export function FeaturedBlog() {
               <div className="relative aspect-[16/10] w-full overflow-hidden">
                 <Image
                   src={featuredPost.coverImage}
-                  alt={featuredPost.title}
+                  alt={featuredPost.coverImageAlt || featuredPost.title}
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
