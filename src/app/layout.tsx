@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer"
 import { ThemeProvider } from "@/components/ThemeProvider"
 import { CookieConsent } from "@/components/CookieConsent"
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager"
+import { PersonJsonLd, WebsiteJsonLd } from "@/components/JsonLd"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -81,6 +82,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <PersonJsonLd />
+        <WebsiteJsonLd />
+      </head>
       <body className={`${inter.variable} antialiased font-sans`}>
         <GoogleTagManager />
         <GoogleTagManagerNoScript />

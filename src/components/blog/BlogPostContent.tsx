@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import { author } from "@/lib/data/blog"
 import { XIcon } from "@/components/icons/XIcon"
+import { ArticleJsonLd } from "@/components/JsonLd"
 import { BlogPost } from "@/types"
 
 interface BlogPostContentProps {
@@ -67,6 +68,14 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
 
   return (
     <main className="py-16">
+      <ArticleJsonLd
+        title={post.title}
+        description={post.excerpt}
+        url={`https://rezaesfahanian.com/articles/${post.slug}`}
+        image={post.coverImage}
+        datePublished={post.date}
+        author={author.name}
+      />
       <div className="container mx-auto px-4">
         {/* Breadcrumb */}
         <motion.div

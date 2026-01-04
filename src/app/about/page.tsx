@@ -5,7 +5,30 @@ import { ValuesGrid } from "@/components/about/ValuesGrid"
 
 export const metadata: Metadata = {
   title: "About",
-  description: "AI Engineer who builds companies. From internship to 7x founder with 2 successful exits.",
+  description:
+    "AI Engineer who builds companies. My journey from a 2012 internship in AI-assisted security to founding 7 companies with 2 successful exits. Based in Hamburg, Germany.",
+  keywords: [
+    "Reza Esfahanian",
+    "AI Engineer",
+    "Serial Entrepreneur",
+    "Hamburg",
+    "Startup Founder",
+    "Machine Learning",
+  ],
+  openGraph: {
+    title: "About Reza Esfahanian | AI Engineer & Serial Entrepreneur",
+    description:
+      "AI Engineer who builds companies. From internship to founding 7 companies with 2 successful exits.",
+    url: "https://rezaesfahanian.com/about",
+    images: [
+      {
+        url: "/images/portrait.jpg",
+        width: 800,
+        height: 1000,
+        alt: "Reza Esfahanian",
+      },
+    ],
+  },
 }
 
 export default function AboutPage() {
