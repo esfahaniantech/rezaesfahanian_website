@@ -45,7 +45,10 @@ export function ExitedVentureCard({
       onClick={onClick}
       className="h-full group cursor-pointer"
     >
-      <Card className="h-full border-primary/30 hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col overflow-hidden">
+      <Card className={cn(
+        "h-full border-primary/30 hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col overflow-hidden",
+        image && "pt-0" // Remove top padding when image is present
+      )}>
         {/* Banner Image - fixed aspect ratio to prevent empty space */}
         {image && (
           <div className="relative w-full overflow-hidden bg-muted" style={{ aspectRatio: "16/9" }}>
