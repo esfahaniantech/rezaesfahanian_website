@@ -34,17 +34,18 @@ export const metadata: Metadata = {
   authors: [{ name: "Reza Esfahanian" }],
   creator: "Reza Esfahanian",
   icons: {
+    // Google prefers .ico or .png first, with stable URLs (no query params)
     icon: [
-      { url: "/favicon.svg?v=6", type: "image/svg+xml" },
-      { url: "/favicon.ico?v=6", sizes: "48x48" },
-      { url: "/favicon-96x96.png?v=6", sizes: "96x96", type: "image/png" },
-      { url: "/android-chrome-192x192.png?v=6", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png?v=6", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png?v=6", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: ["/favicon.ico?v=6"],
+    shortcut: ["/favicon.ico"],
   },
   manifest: "/site.webmanifest",
   appleWebApp: {
