@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run sync-cms || true && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync-cms": "node scripts/sync-cms-posts.cjs"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.11",

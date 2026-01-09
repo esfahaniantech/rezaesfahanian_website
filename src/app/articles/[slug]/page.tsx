@@ -1,7 +1,9 @@
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getPostBySlug, getRecentPosts, getAllSlugs, author } from "@/lib/data/blog"
+import { fetchPostBySlug, fetchPosts, cmsClient } from "@/lib/cms"
 import { BlogPostContent } from "@/components/blog/BlogPostContent"
+import { TransformedBlogPost } from "@/lib/cms/types"
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -9,14 +11,29 @@ interface PageProps {
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
-  const slugs = getAllSlugs()
-  return slugs.map((slug) => ({ slug }))
+  // Get static post slugs
+  const staticSlugs = getAllSlugs()
+  
+  // Try to get CMS post slugs (will fallback gracefully)
+  let cmsSlugs: string[] = []
+  try {
+    const { posts } = await cmsClient.fetchPosts({ limit: 100 })
+    cmsSlugs = posts.map(p => p.slug)
+  } catch (error) {
+    console.log("CMS not available for static params, using static posts only")
+  }
+  
+  // Combine and deduplicate
+  const allSlugs = [...new Set([...staticSlugs, ...cmsSlugs])]
+  return allSlugs.map((slug) => ({ slug }))
 }
 
 // Generate dynamic metadata for each blog post
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  
+  // Try CMS first, fallback to static
+  const post = await fetchPostBySlug(slug) || getPostBySlug(slug)
 
   if (!post) {
     return {
@@ -91,13 +108,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  
+  // Try CMS first, fallback to static
+  const post = await fetchPostBySlug(slug) || getPostBySlug(slug)
 
   if (!post) {
     notFound()
   }
 
-  const relatedPosts = getRecentPosts(3).filter((p) => p.slug !== slug)
+  // Get related posts - try CMS first, fallback to static
+  let relatedPosts: TransformedBlogPost[] = []
+  try {
+    const { posts: cmsPosts } = await cmsClient.fetchPosts({ limit: 10 })
+    const merged = cmsClient.mergeWithStatic(cmsPosts)
+    relatedPosts = merged
+      .filter((p) => p.slug !== slug)
+      .filter((p) => p.tags.some((tag) => post.tags.includes(tag)))
+      .slice(0, 3)
+  } catch (error) {
+    // Fallback to static posts
+    relatedPosts = getRecentPosts(3)
+      .filter((p) => p.slug !== slug)
+      .map((p) => ({ ...p, source: "static" as const }))
+  }
 
-  return <BlogPostContent post={post} relatedPosts={relatedPosts} />
+  return <BlogPostContent post={post as TransformedBlogPost} relatedPosts={relatedPosts} />
 }

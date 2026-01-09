@@ -22,7 +22,12 @@ import { author } from "@/lib/data/blog"
 import { XIcon } from "@/components/icons/XIcon"
 import { ArticleJsonLd } from "@/components/JsonLd"
 import { BlogPost } from "@/types"
+import { TransformedBlogPost } from "@/lib/cms/types"
+import { resolveMediaUrl } from "@/lib/cms"
 import { OptimizedImage, imageSizes } from "@/components/shared/OptimizedImage"
+
+// Extended post type that supports both static and CMS posts
+type ExtendedBlogPost = BlogPost | TransformedBlogPost
 
 // Helper function to parse inline markdown elements (bold, links)
 function parseInlineMarkdown(text: string): React.ReactNode {
@@ -70,8 +75,13 @@ function parseInlineMarkdown(text: string): React.ReactNode {
 }
 
 interface BlogPostContentProps {
-  post: BlogPost
-  relatedPosts: BlogPost[]
+  post: ExtendedBlogPost
+  relatedPosts: ExtendedBlogPost[]
+}
+
+// Type guard to check if post has HTML content (CMS post)
+function hasHtmlContent(post: ExtendedBlogPost): post is TransformedBlogPost & { htmlContent: string } {
+  return 'htmlContent' in post && typeof post.htmlContent === 'string' && post.htmlContent.length > 0
 }
 
 export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
@@ -218,7 +228,7 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
             {/* Cover Image */}
             <div className="relative w-full overflow-hidden mb-8 bg-muted" style={{ aspectRatio: "16/9" }}>
               <OptimizedImage
-                src={post.coverImage}
+                src={resolveMediaUrl(post.coverImage)}
                 alt={post.coverImageAlt || post.title}
                 fill
                 fillParent
@@ -234,128 +244,136 @@ export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
 
             {/* Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
-              {/* Render content as formatted sections */}
-              {post.content
-                .trim()
-                .split("\n\n")
-                .filter((p) => p.trim())
-                .map((paragraph, idx) => {
-                  const trimmedParagraph = paragraph.trim()
+              {/* Render HTML content from CMS */}
+              {hasHtmlContent(post) ? (
+                <div 
+                  dangerouslySetInnerHTML={{ __html: post.htmlContent }}
+                  className="cms-content"
+                />
+              ) : (
+                /* Render markdown content from static posts */
+                post.content
+                  .trim()
+                  .split("\n\n")
+                  .filter((p) => p.trim())
+                  .map((paragraph, idx) => {
+                    const trimmedParagraph = paragraph.trim()
 
-                  // Skip horizontal rules
-                  if (trimmedParagraph === "---") {
-                    return <hr key={idx} className="my-8 border-border" />
-                  }
+                    // Skip horizontal rules
+                    if (trimmedParagraph === "---") {
+                      return <hr key={idx} className="my-8 border-border" />
+                    }
 
-                  // Handle headers
-                  if (trimmedParagraph.startsWith("## ")) {
-                    const title = trimmedParagraph.replace("## ", "")
-                    const sectionId = post.sections?.find(
-                      (s) => s.title === title
-                    )?.id
-                    return (
-                      <h2
-                        key={idx}
-                        id={sectionId || `section-${idx}`}
-                        className="text-2xl font-bold mt-10 mb-4 scroll-mt-24"
-                      >
-                        {title}
-                      </h2>
-                    )
-                  }
-
-                  // Handle blockquotes
-                  if (trimmedParagraph.startsWith(">")) {
-                    return (
-                      <blockquote
-                        key={idx}
-                        className="border-l-4 border-primary pl-4 italic text-muted-foreground my-6"
-                      >
-                        {trimmedParagraph.replace(/^>\s*"?/, "").replace(/"$/, "")}
-                      </blockquote>
-                    )
-                  }
-
-                  // Handle subheaders
-                  if (trimmedParagraph.startsWith("### ")) {
-                    return (
-                      <h3
-                        key={idx}
-                        className="text-xl font-semibold mt-8 mb-3"
-                      >
-                        {trimmedParagraph.replace("### ", "")}
-                      </h3>
-                    )
-                  }
-
-                  // Handle lists (including reference links)
-                  if (trimmedParagraph.startsWith("- ")) {
-                    const items = trimmedParagraph.split("\n").filter((l) => l.trim())
-                    return (
-                      <ul key={idx} className="list-disc pl-6 my-4 space-y-2">
-                        {items.map((item, i) => {
-                          const cleanItem = item.replace(/^-\s*/, "")
-                          return <li key={i}>{parseInlineMarkdown(cleanItem)}</li>
-                        })}
-                      </ul>
-                    )
-                  }
-
-                  // Handle tables
-                  if (trimmedParagraph.includes("|")) {
-                    const rows = trimmedParagraph
-                      .split("\n")
-                      .filter((r) => r.trim() && !r.includes("---"))
-                    if (rows.length > 1) {
-                      const headers = rows[0]
-                        .split("|")
-                        .filter((c) => c.trim())
-                      const dataRows = rows.slice(1)
+                    // Handle headers
+                    if (trimmedParagraph.startsWith("## ")) {
+                      const title = trimmedParagraph.replace("## ", "")
+                      const sectionId = post.sections?.find(
+                        (s) => s.title === title
+                      )?.id
                       return (
-                        <div key={idx} className="overflow-x-auto my-6">
-                          <table className="w-full border-collapse">
-                            <thead>
-                              <tr className="border-b border-border">
-                                {headers.map((h, i) => (
-                                  <th
-                                    key={i}
-                                    className="text-left p-3 font-semibold"
-                                  >
-                                    {h.trim()}
-                                  </th>
-                                ))}
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {dataRows.map((row, ri) => (
-                                <tr
-                                  key={ri}
-                                  className="border-b border-border last:border-0"
-                                >
-                                  {row
-                                    .split("|")
-                                    .filter((c) => c.trim())
-                                    .map((cell, ci) => (
-                                      <td key={ci} className="p-3">
-                                        {cell.trim()}
-                                      </td>
-                                    ))}
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
+                        <h2
+                          key={idx}
+                          id={sectionId || `section-${idx}`}
+                          className="text-2xl font-bold mt-10 mb-4 scroll-mt-24"
+                        >
+                          {title}
+                        </h2>
                       )
                     }
-                  }
 
-                  // Regular paragraphs - parse inline markdown
-                  return (
-                    <p key={idx} className="my-4 leading-relaxed">
-                      {parseInlineMarkdown(trimmedParagraph)}
-                    </p>
-                  )
-                })}
+                    // Handle blockquotes
+                    if (trimmedParagraph.startsWith(">")) {
+                      return (
+                        <blockquote
+                          key={idx}
+                          className="border-l-4 border-primary pl-4 italic text-muted-foreground my-6"
+                        >
+                          {trimmedParagraph.replace(/^>\s*"?/, "").replace(/"$/, "")}
+                        </blockquote>
+                      )
+                    }
+
+                    // Handle subheaders
+                    if (trimmedParagraph.startsWith("### ")) {
+                      return (
+                        <h3
+                          key={idx}
+                          className="text-xl font-semibold mt-8 mb-3"
+                        >
+                          {trimmedParagraph.replace("### ", "")}
+                        </h3>
+                      )
+                    }
+
+                    // Handle lists (including reference links)
+                    if (trimmedParagraph.startsWith("- ")) {
+                      const items = trimmedParagraph.split("\n").filter((l) => l.trim())
+                      return (
+                        <ul key={idx} className="list-disc pl-6 my-4 space-y-2">
+                          {items.map((item, i) => {
+                            const cleanItem = item.replace(/^-\s*/, "")
+                            return <li key={i}>{parseInlineMarkdown(cleanItem)}</li>
+                          })}
+                        </ul>
+                      )
+                    }
+
+                    // Handle tables
+                    if (trimmedParagraph.includes("|")) {
+                      const rows = trimmedParagraph
+                        .split("\n")
+                        .filter((r) => r.trim() && !r.includes("---"))
+                      if (rows.length > 1) {
+                        const headers = rows[0]
+                          .split("|")
+                          .filter((c) => c.trim())
+                        const dataRows = rows.slice(1)
+                        return (
+                          <div key={idx} className="overflow-x-auto my-6">
+                            <table className="w-full border-collapse">
+                              <thead>
+                                <tr className="border-b border-border">
+                                  {headers.map((h, i) => (
+                                    <th
+                                      key={i}
+                                      className="text-left p-3 font-semibold"
+                                    >
+                                      {h.trim()}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {dataRows.map((row, ri) => (
+                                  <tr
+                                    key={ri}
+                                    className="border-b border-border last:border-0"
+                                  >
+                                    {row
+                                      .split("|")
+                                      .filter((c) => c.trim())
+                                      .map((cell, ci) => (
+                                        <td key={ci} className="p-3">
+                                          {cell.trim()}
+                                        </td>
+                                      ))}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        )
+                      }
+                    }
+
+                    // Regular paragraphs - parse inline markdown
+                    return (
+                      <p key={idx} className="my-4 leading-relaxed">
+                        {parseInlineMarkdown(trimmedParagraph)}
+                      </p>
+                    )
+                  })
+              )}
             </div>
 
             {/* Author Box */}
