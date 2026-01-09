@@ -34,8 +34,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Reza Esfahanian" }],
   creator: "Reza Esfahanian",
   icons: {
-    // Google prefers .ico or .png first, with stable URLs (no query params)
+    // Google specifically looks for 16x16 and 32x32 PNG favicons
     icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
       { url: "/favicon.svg", type: "image/svg+xml" },
